@@ -1,0 +1,123 @@
+{% load static %}
+{% if request.user.is_superuser %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" type="image/png" href={% static "image/nepal.svg" %}>
+        <title>Entry</title>
+        <meta name="description" content="">
+		<link rel="stylesheet" href="{% static 'css/entry.css' %}">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/nepali-date-picker@2.0.1/dist/jquery.nepaliDatePicker.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.css" crossorigin="anonymous" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+
+		<div class="navbar">
+			<ul>
+				<li><a href="/adminpage" >Dashboard</a></li>
+				<li><a href="/adminentry" class="active">नयाँ इन्ट्री</a></li>
+				<li><a href="/adminreport">रिपोर्ट</a></li>
+        		<li><a href="/adminpublish">प्रकाशित गर्नुहोस्</a></li>
+			</ul>
+			<span class="msg" style="margin-left: 10px;">Hello, {{request.user}}</span>
+			<button><a href="{% url 'logout' %}">LogOut</a></button>
+	</div>  
+ 
+	<div class="container">	  
+			<div class="header">
+				<div>
+					<img src={% static "image/nepal.svg" %} width="50px" height="50px">
+				</div>
+					<p style="font-size:22px;letter-spacing: 1px;">विराटनगर महानगरपालिका, नगर कार्यपालिकाको कार्यालय</p>
+		</div>
+
+	<div class="content">
+		<div class="content1">
+						<h6> इन्धन फारम </h6>
+						<form method="POST">
+						{% csrf_token %}
+						<table>
+					
+							<tr>
+								<td> नाम </td>
+								<td>:</td>
+								<td>
+								<input type="text" name="name" placeholder="आफ्नो नाम" required />
+								</td>
+							</tr>
+
+							<tr>
+								<td> इन्धन को प्रकार </td>
+								<td>:</td>
+								<td>
+								<select name="Gasoline_type">
+									<option selected disabled="true">--इन्धन छान्नुहोस्--</option>
+									<option>पेट्रोल</option>
+									<option>डिजेल</option>
+									<option>मोबिल</option>
+								</select>
+								</td>
+							</tr>
+
+							<tr>
+								<td> पेट्रोल मात्रा </td>
+								<td>:</td>
+							<td>
+							<input type="text" name="Gasoline" placeholder="पेट्रोल मात्रा" required />
+							</td>
+							</tr>
+					
+							<tr>
+								<td> मिति </td>
+									<td>:</td>
+									<td>
+										<input type="text" value="" name="date" class="date-picker" required/>
+									</td>
+									
+							</tr>  
+						
+					
+						<tr>
+								<td> सवारी साधन न. </td>
+								<td>:</td>
+								<td><input type="text" name="vehicle_number" placeholder="प्र१ ख१२३४" required /></td>
+						</tr>
+						<tr>
+								<td> कैफियत </td>
+								<td>:</td>
+							<td><input type="text" name="purpose" placeholder="कैफियत" required /></td>		
+					</tr>
+						</table>
+						<center><input class="sub" type="submit" name="submit" value="SUBMIT"/></center>
+						{% if messages %}
+						{% for result in messages %}
+							<b style = "color: green;">{{result}}</b>
+						{% endfor %}
+						{% endif %}
+						<table>
+							<td>कृपया आफ्नो पुरा नाम हाल्नुहोला ।</td>
+							<td>इन्धनको प्रकार हेरेर मात्र छान्नुहोला । </td>
+							<td>इन्धन मात्रा आंकमा हाल्नुहोला । </td>
+							<td>सवारी साधनको आंक हाल्दा माथि दिईएअको प्रकारले मात्र हाल्नुहोला ।</td>
+							<td>सके सम्म कैफियतलाई सानो र त्यस सबै थोक समावेश गर्नुहोला । </td>
+						</table>
+						</form>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$('.date-picker').nepaliDatePicker({
+		dateFormat: '%y/%m/%d',
+		closeOnDateSelect: true
+	  });
+	</script>
+</body>
+</html>
+{% endif %}

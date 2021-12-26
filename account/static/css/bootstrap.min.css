@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swap");
+.pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+  } 
+  .page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #2780e3;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+  }
+  .page-link:hover {
+    z-index: 2;
+    color: #165ba8;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+  }
+  .page-link:focus {
+    z-index: 3;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(39, 128, 227, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(39, 128, 227, 0.25);
+  }
+  .page-item:first-child .page-link {
+    margin-left: 0;
+  }
+  .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #2780e3;
+    border-color: #2780e3;
+  }
+  .page-item.disabled .page-link {
+    color: #868e96;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff;
+    border-color: #dee2e6;
+  }
+  .pagination-lg .page-link {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.171875rem;
+    line-height: 1.5;
+  }
+  .pagination-sm .page-link {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8203125rem;
+    line-height: 1.5;
+  }
+  .pagination-container{
+      float: right;
+  }
+  .search{
+      float: left;
+      padding: 20px;
+  }

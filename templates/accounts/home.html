@@ -9,9 +9,16 @@
         <title>Home</title>
         <meta name="description" content="">
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-    </head>
+        <style>
+            .title{
+                font-size:22px;
+                letter-spacing: 1px;
+            }
+        </style>
+    </head> 
     <body>
         <div class="navbar">
         <ul>
@@ -19,7 +26,6 @@
             <li><a href="/entry">नयाँ इन्ट्री</a></li>
             <li><a href="/report">रिपोर्ट</a></li>
         </ul>
-            <span class="Hello-msg" style="margin-left: 10px;">Hello, {{request.user}}</span>
             <button><a class="logout_btn" href="{% url 'logout' %}">LogOut</a></button>
         </div> 
 
@@ -28,7 +34,7 @@
                 <div>
                     <img src={% static "image/nepal.svg" %} width="50px" height="50px">
                 </div>
-                    <p style="font-size:22px;letter-spacing: 1px;">विराटनगर महानगरपालिका, नगर कार्यपालिकाको कार्यालय</p>
+                    <p class="title" >विराटनगर महानगरपालिका, नगर कार्यपालिकाको कार्यालय</p>
             </div> 
             <div class="content">
                 <div class="cards">

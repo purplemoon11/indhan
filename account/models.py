@@ -8,6 +8,7 @@ class Entry(models.Model):
     date = models.CharField(max_length=20)
     vehicle_number = models.CharField(max_length=20, null=True)
     purpose = models.CharField(max_length=200, null=True)
+    type = models.CharField(max_length=20, null=True )
 
     class Meta:
         db_table = 'entry'

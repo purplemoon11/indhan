@@ -12,7 +12,7 @@ class CreateUserForm(UserCreationForm):
 class update(forms.ModelForm):
 	class Meta:
 		model = Entry
-		fields = ["name", "Gasoline_type", "Gasoline", "date", "vehicle_number", "purpose"]
+		fields = ["name", "Gasoline_type", "Gasoline", "date", "vehicle_number", "purpose", "type"]
 
 class CreateAdminForm(UserCreationForm):
 	class Meta:

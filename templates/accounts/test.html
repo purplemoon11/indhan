@@ -31,29 +31,42 @@
         }
         h2{
             font-size: 15px;
-            padding-right: 80px;
+            padding-right: 180px;
         }
         h4{
             text-decoration: underline;
         }
         h3{
             font-size: 15px;
-            padding-right: 80px;
+            padding-right: 215px;
+        }
+        .alignleft{
+            padding-right: 20px;
+        }
+        .items{
         }
     </style>
 </head>
 <body>
-    {{pi.id}} <h1>बिराटनगर महानगरपालिका</h1>
+    {{pi.id}} </br>
+    <h1>बिराटनगर महानगरपालिका</h1>
     नगर कार्यपालिकाको कार्यालय,</br>
-    १ नं. प्रदेश, नेपाल</br>
-    <p>{{pi.date}}</p>
+    बिराटनगर, मोरंग, १ नं. प्रदेश, नेपाल </br>
+
+    <p>मिति: {{pi.date}}</p>
+
     <h2>श्री एबी पेट्रोलियम,</h2>
+
     <h3>बिराटनगर ३</h3>
+
     हाम्रो गाडी नं. {{pi.vehicle_number}} लाई निम्न</br>
-    लेखिए अनुसारको इन्धन उपलब्ध गराई दिनु होला । </br>
+    लेखिए अनुसारको इन्धन उपलब्ध गराई दिनु होला ।</br>
     बिल प्राप्त भएपछि भुक्तानी दिईने छ ।
+
     <h4>{{pi.Gasoline_type}} {{pi.Gasoline}} ltr.<h4>
-    <h5 class="alignleft">..........चालकको सही</h5>.....<h5 class="alignright">आदेश दिनेको सही..........</h5></br>
+
+    <h5 class="alignleft">...............चालकको सही</h5><h5 class="alignright">आदेश दिनेको सही...............</h5></br>
+
     <button class="print">Print</button>
     <script>
         $(document).ready(function(){

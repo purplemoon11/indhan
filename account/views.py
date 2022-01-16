@@ -98,9 +98,10 @@ def entryPage(request):
 # Report Funtion
 def reportPage(request):
     report = Entry.objects.get_queryset().order_by('-id')
+    i = 1
     paginator = Paginator(report, 5)
     page_number = request.GET.get('page')
-    page_obj = Paginator.get_page(paginator, page_number)
+    page_obj = Paginator.get_page(paginator, page_number) 
     context = {
         'rp': report,
         'page_obj': page_obj
@@ -120,7 +121,8 @@ def updatePage(request, id):
         pi.date = request.POST.get('date')
         pi.vehicle_number = request.POST.get('vehicle_number')
         pi.purpose = request.POST.get('purpose')
-        
+        pi.type = request.POST.get('type')
+
         if checkDataValidity(pi):
             pi.save()
             return redirect('/report')
@@ -139,7 +141,7 @@ def adminPage(request):
     return render(request, 'accounts/adminpage.html', context)
 
 
-@login_required(login_url='adminlogin')
+@login_required(login_url='login')
 def adminEntry(request):
     saverecord = update()
     if request.method == 'POST':
@@ -154,6 +156,7 @@ def adminEntry(request):
 @login_required(login_url='login')
 def adminReport(request):
     report = Entry.objects.get_queryset().order_by('-id')
+    i = 1
     paginator = Paginator(report, 5)
     page_number = request.GET.get('page')
     page_obj = Paginator.get_page(paginator, page_number)
@@ -200,6 +203,7 @@ def adminUpdate(request, id):
         pi.date = request.POST.get('date')
         pi.vehicle_number = request.POST.get('vehicle_number')
         pi.purpose = request.POST.get('purpose')
+        pi.type = request.POST.get('type')
         
         if checkDataValidity(pi):
             pi.save()
@@ -222,6 +226,8 @@ def checkDataValidity(data):
     if data.vehicle_number == None or data.vehicle_number == "":
         return False;
     if data.purpose == None or data.purpose == "":
+        return False;
+    if data.type == None or data.type == "":
         return False;
     return True
  

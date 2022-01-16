@@ -24,11 +24,10 @@
 			<li><a href="/adminreport">रिपोर्ट</a></li>
 			<li><a href="/adminpublish">प्रकाशित गर्नुहोस्</a></li>
 		</ul>
-		<span class="Hello-msg" style="margin-left: 10px;">Hello, {{request.user}}</span>
         <button><a href="{% url 'logout' %}">LogOut</a></button>
   </div>  
 
-  <div class="container">	  
+  <div class="container">	   
 		<div class="header">
 			<div>
             	<img src={% static "image/nepal.svg" %} width="50px" height="50px">
@@ -50,16 +49,52 @@
                             <input 
 							type="text" 
 							name="name" 
-							equired 
+							required 
 							value= "{{pi.name}}"/>
                             </td>
 						</tr>
+
+						<tr>
+							<td> कार्यलयको प्रकार </td>
+								<td>:</td>
+									<td>
+										<select name="type" class="ward_type" id="ward">
+											<option selected disabled="true" value= "{{pi.type}}">--वार्ड छान्नुहोस्--</option>
+											<option>वार्ड १.</option>
+											<option>वार्ड २.</option>
+											<option>वार्ड ३.</option>
+											<option>वार्ड ४.</option>
+											<option>वार्ड ५.</option>
+											<option>वार्ड ६.</option>
+											<option>वार्ड ७.</option>
+											<option>वार्ड ८.</option>
+											<option>वार्ड ९.</option>
+											<option>वार्ड १०.</option>
+											<option>वार्ड ११.</option>
+											<option>वार्ड १२.</option>
+											<option>वार्ड १३.</option>
+											<option>वार्ड १४.</option>
+											<option>वार्ड १५.</option>
+											<option>वार्ड १६.</option>
+											<option>वार्ड १७.</option>
+											<option>वार्ड १८.</option>
+											<option>वार्ड १९.</option>
+										</select>
+										<select name="type" class="sakha_type" id="sakha">
+											<option selected disabled="true" value= "{{pi.type}}">--शाखा\महा-शाखा छान्नुहोस्--</option>
+											<option></option>
+											<option></option>
+											<option></option>
+										</select>
+							</td>
+						</tr>
+
 
                         <tr>
                             <td> इन्धन को प्रकार </td>
                             <td>:</td>
                             <td>
-							<select name="Gasoline_type">
+							<select name="Gasoline_type" required> 
 								<option selected disabled="true" value= "{{pi.Gasoline_type}}">--इन्धन छान्नुहोस्--</option>
 								<option>पेट्रोल</option>
 								<option>डिजेल</option>
